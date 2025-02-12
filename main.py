@@ -67,7 +67,7 @@ def run(input_data, solver_params=None, extra_arguments=None):
 
     Parameters:
     - input_data: dict, expected to contain:
-        'adjacency_matrix' (n x n adjacency matrix of the graph).
+        'adj_matrix' (n x n adjacency matrix of the graph).
     - solver_params: dict, (optional) parameters for the solver, not used here.
     - extra_arguments: dict, (optional) any extra arguments needed, not used here.
 
@@ -79,10 +79,10 @@ def run(input_data, solver_params=None, extra_arguments=None):
         }
         where existence is 1 if a Hamiltonian path exists, 0 otherwise.
     """
-    adjacency_matrix = input_data["adjacency_matrix"]
+    adj_matrix = input_data["adj_matrix"]
     
     # Run the Hamiltonian path dp algorithm.
-    exists, best_solution = find_hamiltonian_path(adjacency_matrix)
+    exists, best_solution = find_hamiltonian_path(adj_matrix)
     
     # Prepare the result in the Qcentroid JSON-like format.
     return {
